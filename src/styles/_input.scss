@@ -1,0 +1,26 @@
+@use "sass:map";
+@use "./colors";
+@use '~@angular/material' as mat;
+
+@mixin theme($theme) {
+  $is-dark: map.get($theme, is-dark);
+  $color: map.get($theme, color);
+
+  .mat-form-field-flex {
+    @if $is-dark {
+      background-color: map.get(colors.$input, dark-background);
+    } @else {
+      //   @include mat.elevation(2);
+      background-color: map.get(colors.$input, light-background);
+    }
+
+    ::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+  }
+  .mat-form-field-label {
+    @if $is-dark {
+      color: white;
+    }
+  }
+}

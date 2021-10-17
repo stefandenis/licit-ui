@@ -1,0 +1,25 @@
+.card {
+  border-radius: 5px;
+  cursor: pointer;
+
+  width: 180px;
+  height: 230px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.card__product-image {
+  width: 95%;
+  height: 40%;
+  object-fit: cover;
+  border-radius: 5px;
+  user-select: none;
+}
+
+.card__follow-licitation {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  user-select: none;
+}

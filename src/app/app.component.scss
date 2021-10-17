@@ -1,0 +1,35 @@
+.app-container {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-container--dark {
+  background-color: black;
+}
+
+.app-container--white {
+  background-color: white;
+}
+
+.app-container__toggle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-container__toggle__option {
+  padding: 0px 5px 0px 5px;
+}
+.app-container__toggle__option--dark {
+  color: white;
+}
+
+.app-container__toggle__option--white {
+  color: black;
+}

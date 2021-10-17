@@ -1,0 +1,51 @@
+$success-bkg-color: rgb(0, 124, 27);
+$error-bkg-color: rgb(131, 0, 0);
+$info-bkg-color: rgb(132, 44, 204);
+
+.notification {
+  color: white;
+  padding: 15px 10px 15px 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  pointer-events: all;
+  cursor: default;
+  transition: transform 2s linear, top 0.5s ease-out;
+  margin-top: 5px;
+  position: absolute;
+  top: 0;
+}
+
+.notification-margin-transition {
+  // transform: translateY(100%);
+  margin-top: 10px;
+}
+
+.notification:hover {
+}
+
+.delimiter {
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 20px;
+  margin: 0px 10px 0px 10px;
+}
+
+.notification-color--success {
+  background-color: $success-bkg-color;
+}
+
+.notification-color--error {
+  background-color: $error-bkg-color;
+}
+
+.notification-color--info {
+  background-color: $info-bkg-color;
+}
+
+.notification__message {
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+}

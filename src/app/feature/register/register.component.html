@@ -1,0 +1,141 @@
+<div class="register-container">
+  <div class="register-wrapper">
+    <img
+      src="../../../../assets/logo/under-name.png"
+      width="100px"
+      height="auto"
+    />
+    <p>Inregistreaza-te</p>
+    <p style="font-size: 10px">Campurile marcate cu * sunt obligatorii</p>
+    <form
+      class="register-container__form"
+      [formGroup]="registerForm"
+      scrollToInvalidFormField
+    >
+      <mat-form-field class="firstName" appearance="fill">
+        <mat-label class="login-mat-label">Nume*</mat-label>
+        <input id="test" matInput type="text" formControlName="lastName" />
+        <mat-error *ngIf="lastName?.invalid && lastName?.touched"
+          >Trebuie sa introduceti numele</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field class="lastName" appearance="fill">
+        <mat-label class="login-mat-label">Prenume*</mat-label>
+        <input matInput type="text" formControlName="firstName" />
+        <mat-error *ngIf="firstName?.invalid && firstName?.touched"
+          >Trebuie sa introduceti prenumele</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field class="email" appearance="fill">
+        <mat-label class="login-mat-label">Email*</mat-label>
+        <input matInput type="text" formControlName="email" />
+        <mat-error *ngIf="email?.invalid && email?.touched"
+          >Email-ul nu este valid.</mat-error
+        >
+      </mat-form-field>
+      <mat-divider class="d" style="width: 100%"></mat-divider>
+
+      <mat-form-field class="street" appearance="fill">
+        <mat-label class="login-mat-label">Strada</mat-label>
+        <input matInput type="text" />
+      </mat-form-field>
+
+      <mat-form-field class="number" appearance="fill">
+        <mat-label class="login-mat-label">Numar</mat-label>
+        <input matInput type="text" />
+      </mat-form-field>
+
+      <mat-form-field class="city" appearance="fill">
+        <mat-label class="login-mat-label">Oras</mat-label>
+        <input matInput type="text" />
+      </mat-form-field>
+
+      <mat-form-field class="additionalDetails" appearance="fill">
+        <mat-label class="login-mat-label"
+          >Detalii suplimentare(bloc/scara/casa)</mat-label
+        >
+        <input matInput type="text" />
+      </mat-form-field>
+
+      <mat-form-field class="phone" appearance="fill">
+        <mat-label class="login-mat-label">Telefon*</mat-label>
+        <input matInput type="text" formControlName="phone" />
+        <mat-error *ngIf="phone?.invalid && phone?.touched"
+          >Introduceti un numar de telefon</mat-error
+        >
+      </mat-form-field>
+
+      <mat-divider class="a" style="width: 100%"></mat-divider>
+
+      <mat-form-field class="pw" appearance="fill">
+        <mat-label class="login-mat-label">Parola*</mat-label>
+        <input matInput type="password" formControlName="password" />
+        <mat-error> Parola trebuie sa respecte conditiile precizate </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="confPw" appearance="fill">
+        <mat-label class="login-mat-label">Confirma parola*</mat-label>
+        <input matInput type="password" formControlName="confirmPassword" />
+        <mat-error *ngIf="confirmPassword?.invalid && confirmPassword?.touched">
+          Parolele trebuie sa se potriveasca
+        </mat-error>
+      </mat-form-field>
+    </form>
+
+    <div class="pw-validation">
+      <div
+        *ngFor="let passwordError of passwordErrors"
+        [ngClass]="{
+          'pw-validation__condition--red': passwordError.hasError,
+          'pw-validation__condition--green': !passwordError.hasError
+        }"
+        class="pw-validation__condition"
+      >
+        <mat-icon
+          class="
+            pw-validation__condition__icon pw-validation__condition__icon--size
+          "
+          >{{ passwordError.hasError ? "cancel" : "check_circle" }}</mat-icon
+        ><span>{{ passwordError.message }}</span>
+      </div>
+    </div>
+    <div class="TandC">
+      <mat-checkbox
+        color="primary"
+        class="example-margin"
+        (change)="acceptTandC($event)"
+        >Sunt de acord cu termenii si conditiile</mat-checkbox
+      >
+      <mat-error class="error" *ngIf="tcHasError"
+        >Iti poti crea un cont doar daca esti de acord cu termenii si
+        conditiile</mat-error
+      >
+    </div>
+
+    <button
+      (click)="register()"
+      mat-raised-button
+      color="primary"
+      class="register-button"
+    >
+      Inregistreaza-te
+    </button>
+    <p class="login-wrapper__link" routerLink="/login">Am deja un cont</p>
+
+    <mat-divider style="width: 100%"></mat-divider>
+
+    <div
+      (mousedown)="buttonFocus = true"
+      (mouseup)="buttonFocus = false"
+      (mouseleave)="buttonFocus = false"
+      [ngClass]="{ 'facebook-login--focus': buttonFocus }"
+      class="facebook-login"
+    >
+      <p>Logheaza-te cu facebook</p>
+      <mat-icon>facebook</mat-icon>
+    </div>
+    <!-- <check [checkSize]="25" *ngIf="showButton"></check> -->
+  </div>
+</div>

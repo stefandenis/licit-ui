@@ -1,0 +1,17 @@
+@use "sass:map";
+@use "./colors";
+@use '~@angular/material' as mat;
+
+@mixin theme($theme) {
+  $is-dark: map.get($theme, is-dark);
+  $color: map.get($theme, color);
+
+  .mat-checkbox .mat-checkbox-frame {
+    @if $is-dark {
+      border-color: map.get(colors.$checkbox, dark-border);
+    } @else {
+      //   @include mat.elevation(2);
+      border-color: map.get(colors.$checkbox, light-border);
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@use "sass:map";
+@use "./colors";
+@use "~@angular/material" as mat;
+@use "@material/ripple";
+$has-nested-focusable-element: (
+  bool: false,
+);
+@mixin theme($theme) {
+  $is-dark: map.get($theme, is-dark);
+  $color: map.get($theme, color);
+
+  .card {
+    @if $is-dark {
+      @include mat.elevation(3);
+
+      background-color: map.get(colors.$card, dark-background);
+      .mat-ripple-element {
+        background-color: rgba(136, 136, 136, 0.25);
+      }
+    } @else {
+      @include mat.elevation(3);
+      background-color: map.get(colors.$card, light-background);
+    }
+    color: $color;
+  }
+}

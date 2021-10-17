@@ -1,0 +1,22 @@
+@use "sass:map";
+@use "./colors";
+@use '~@angular/material' as mat;
+
+@mixin theme($theme) {
+  $is-dark: map.get($theme, is-dark);
+  $color: map.get($theme, color);
+
+  .register-wrapper {
+    @if $is-dark {
+      @include mat.elevation(0);
+      background-color: map.get(colors.$login, dark-background);
+    } @else {
+      @include mat.elevation(2);
+      background-color: map.get(colors.$login, light-background);
+    }
+    color: $color;
+    .mat-divider-horizontal {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+  }
+}

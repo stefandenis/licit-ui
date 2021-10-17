@@ -1,0 +1,80 @@
+$L-width: 100px;
+$little-dot-width: $L-width / 7;
+$big-dot-width: $L-width / 5;
+$little-dot-offset-x: 20;
+$big-dot-offset-x: 25;
+
+.loading-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  background-color: rgba(0, 0, 0, 0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader__L {
+  width: $L-width;
+  height: auto;
+}
+
+.loader__big-dot {
+  position: absolute;
+  width: $big-dot-width;
+  height: auto;
+  transform: translateX(($L-width / 2) + $big-dot-offset-x);
+  animation: bigDot 1.5s linear infinite;
+}
+
+.loader__little-dot {
+  position: absolute;
+  width: $little-dot-width;
+  height: auto;
+  transform: rotate(90deg) translateX(($L-width / 2) + $little-dot-offset-x);
+  animation: littleDot 1.5s ease-in-out infinite;
+}
+
+@keyframes bigDot {
+  from {
+    transform: rotate(0deg) translateX(($L-width / 2) + $big-dot-offset-x);
+  }
+  to {
+    transform: rotate(360deg) translateX(($L-width / 2) + $big-dot-offset-x);
+  }
+}
+
+@keyframes littleDot {
+  from {
+    transform: rotate(-90deg) translateX(-($L-width / 2)-$little-dot-offset-x);
+  }
+  to {
+    transform: rotate(270deg) translateX(-($L-width / 2)-$little-dot-offset-x);
+  }
+}
+
+.loading-container--showOverlay {
+  display: flex;
+}
+
+.message-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #252525;
+  border-radius: 10px;
+  padding: 5px 20px 5px 20px;
+  color: white;
+}

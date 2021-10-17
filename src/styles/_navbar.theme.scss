@@ -1,0 +1,19 @@
+@use "sass:map";
+@use "./colors";
+@use '~@angular/material' as mat;
+
+@mixin theme($theme) {
+  $is-dark: map.get($theme, is-dark);
+  $color: map.get($theme, color);
+
+  .navbar {
+    @if $is-dark {
+      @include mat.elevation(0);
+      background-color: map.get(colors.$navbar, dark-background);
+    } @else {
+      @include mat.elevation(2);
+      background-color: map.get(colors.$navbar, light-background);
+    }
+    color: $color;
+  }
+}

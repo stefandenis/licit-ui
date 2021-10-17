@@ -1,0 +1,33 @@
+<svg
+  [style.width]="checkSize"
+  [style.height]="checkSize"
+  viewBox="0 0 50 50"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <g id="checkmark">
+    <circle
+      [ngClass]="{ 'checkmark-circle-animation': triggerCircleAnimation }"
+      class="checkmark-circle"
+      id="outline"
+      cx="25"
+      cy="25"
+      r="22"
+      stroke="#6BBE66"
+      stroke-width="6"
+      stroke-linejoin="round"
+      stroke-linecap="round"
+    />
+
+    <polyline
+      [ngClass]="{ 'checkmark-check-animation': triggerCheckAnimation }"
+      class="checkmark-check"
+      points="15,25 23,33 35,15"
+      fill="none"
+      stroke="#6BBE66"
+      stroke-width="6"
+      stroke-linejoin="round"
+      stroke-linecap="round"
+    />
+  </g>
+</svg>

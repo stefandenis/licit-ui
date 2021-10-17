@@ -1,0 +1,17 @@
+.navbar {
+  margin-bottom: 10px;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+
+.theme-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mat-raised-button {
+  margin-right: 2px;
+  margin-left: 2px;
+}

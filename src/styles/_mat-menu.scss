@@ -1,0 +1,26 @@
+@use "sass:map";
+@use "./colors";
+@use '~@angular/material' as mat;
+
+@mixin theme($theme) {
+  $is-dark: map.get($theme, is-dark);
+  $color: map.get($theme, color);
+  $hover-background: map.get(colors.$mat-menu, dark-background-hover);
+  .mat-menu-panel {
+    @if $is-dark {
+      background-color: map.get(colors.$mat-menu, dark-background);
+
+      .mat-menu-item:hover {
+        background-color: $hover-background;
+      }
+    } @else {
+      background-color: map.get(colors.$mat-menu, light-background);
+    }
+    .mat-icon {
+      color: $color;
+    }
+    .mat-menu-item {
+      color: $color;
+    }
+  }
+}

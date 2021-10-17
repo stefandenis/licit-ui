@@ -1,0 +1,15 @@
+<div
+  [@spawnNotification]="isHidden ? 'hidden' : 'visible'"
+  (@spawnNotification.done)="animationDone($event)"
+  (@spawnNotification.start)="animationStart($event)"
+  [ngClass]="setNotificationColor(notificationType)"
+  class="notification"
+  #notificationCard
+  (click)="removeNotification()"
+  (mouseenter)="setLowOpacity()"
+  (mouseleave)="setHighOpacity()"
+>
+  <mat-icon>{{ notificationIcon.get(notificationType) }}</mat-icon>
+  <div class="delimiter"></div>
+  <p class="notification__message">{{ message }}</p>
+</div>

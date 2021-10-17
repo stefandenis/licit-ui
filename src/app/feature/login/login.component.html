@@ -1,0 +1,60 @@
+<div class="login-container">
+  <div class="login-wrapper">
+    <img
+      src="../../../../assets/logo/under-name.png"
+      width="100px"
+      height="auto"
+    />
+    <p>Intra in cont</p>
+    <form class="login-container__form">
+      <mat-form-field appearance="fill">
+        <mat-label class="login-mat-label">Email</mat-label>
+        <input
+          matInput
+          placeholder="exemplu@mail.com"
+          type="email"
+          [formControl]="email"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label class="login-mat-label">Parola</mat-label>
+        <input matInput type="password" [formControl]="password" />
+      </mat-form-field>
+    </form>
+    <button
+      (click)="login()"
+      mat-raised-button
+      class="login-button"
+      color="primary"
+      *ngIf="!loggingIn; else showLoadingButton"
+      style="margin-bottom: 5px"
+    >
+      Intra in cont
+    </button>
+    <ng-template #showLoadingButton
+      ><button
+        class="login-button"
+        mat-raised-button
+        color="primary"
+        style="margin-bottom: 5px"
+      >
+        <mat-spinner style="margin: 0 auto" diameter="20">
+        </mat-spinner></button
+    ></ng-template>
+    <p class="login-wrapper__link">Am uitat parola</p>
+    <p class="login-wrapper__link" routerLink="/register">Inregistreaza-te</p>
+
+    <mat-divider style="width: 100%"></mat-divider>
+
+    <div
+      (mousedown)="buttonFocus = true"
+      (mouseup)="buttonFocus = false"
+      (mouseleave)="buttonFocus = false"
+      [ngClass]="{ 'facebook-login--focus': buttonFocus }"
+      class="facebook-login"
+    >
+      <p>Logheaza-te cu facebook</p>
+      <mat-icon>facebook</mat-icon>
+    </div>
+  </div>
+</div>

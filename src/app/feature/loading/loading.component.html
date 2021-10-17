@@ -1,0 +1,14 @@
+<div class="loading-container">
+  <div class="loader-container" *ngIf="loading; else showResultMessage">
+    <img class="loader__L" src="../../../assets/logo/only-L.png" />
+    <img class="loader__big-dot" src="../../../assets/logo/big-dot.png" />
+    <img class="loader__little-dot" src="../../../assets/logo/little-dot.png" />
+  </div>
+
+  <ng-template #showResultMessage>
+    <div class="message-box">
+      <check [checkSize]="50"></check>
+      <span>{{ messageAfterLoading }} </span>
+    </div>
+  </ng-template>
+</div>
