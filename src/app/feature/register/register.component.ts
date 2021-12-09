@@ -68,6 +68,7 @@ export class RegisterComponent implements OnInit {
         city: '',
         additionalDetails: '',
         phone: ['', [Validators.required]],
+        postalCode: '',
         password: [
           '',
           [

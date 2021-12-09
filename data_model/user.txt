@@ -1,0 +1,19 @@
+user:
+
+    userId: uuid
+    email: string
+    phone: string
+    firstName: string
+    lastName: string
+    displayName: string
+    Address: object
+        street: string
+        number: string 
+        city: string
+        additional details: 
+            block: string
+            entrance (scara):
+            floor: string
+            apartment: string 
+    postalCode: string
+

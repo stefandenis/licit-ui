@@ -1,0 +1,13 @@
+$light-theme: (
+  background-color: #f2f2f7,
+  foreground-color: gray,
+  is-dark: false,
+  color: black,
+);
+
+$dark-theme: (
+  background-color: black,
+  foreground-color: gray,
+  is-dark: true,
+  color: white,
+);

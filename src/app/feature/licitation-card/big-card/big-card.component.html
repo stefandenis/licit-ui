@@ -1,4 +1,39 @@
-<div class="card" matRipple>
-  <mat-icon class="card__follow-licitation">visibility</mat-icon>
-  <img class="card__product-image" src="../../../../assets/tricou.jpg" />
+<div *ngIf="isCardLoaded; else loadingCard" class="card">
+  <div class="card__follow-licitation">
+    <div class="card__follow-licitation__info">{{ watchListMessage }}</div>
+    <mat-icon
+      (click)="manageWatchList()"
+      class="card__follow-licitation__icon"
+      [ngClass]="{ 'card__follow-licitation__info--added': isAddedToWatchList }"
+      >favorite</mat-icon
+    >
+  </div>
+  <img class="card__product-image" src="{{ imageUrl }}" />
+  <p class="card__title">{{ title }}</p>
+  <div class="card__details">
+    <p class="card__detail">Licitatia se incheie in:</p>
+    <p class="card__detail card__detail--date">{{ timeRemaining }}</p>
+
+    <p class="card__detail">Pret curent: {{ price }}</p>
+  </div>
+  <button class="card__licitation-entry" color="accent" mat-raised-button>
+    Liciteaza
+  </button>
 </div>
+
+<ng-template #loadingCard>
+  <div class="card">
+    <div class="card__loading-image card__loading--background">
+      <div class="card__loading-bar"></div>
+    </div>
+    <div class="card__title card__loading--background">
+      <div class="card__loading-bar"></div>
+    </div>
+    <div class="card__remaining-time card__loading--background">
+      <div class="card__loading-bar"></div>
+    </div>
+    <div class="card__price card__loading--background">
+      <div class="card__loading-bar"></div>
+    </div>
+  </div>
+</ng-template>

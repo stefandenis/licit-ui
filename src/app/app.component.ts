@@ -48,7 +48,23 @@ export class AppComponent implements OnInit {
   }
 
   test() {
-    this.notificationService.createErrorNotification('A aparut o eroare');
+    // this.notificationService.createErrorNotification('A aparut o eroare');
+    const date = new Date();
+    const date2 = new Date();
+    date2.setDate(20);
+    date2.setMonth(9);
+    date2.setFullYear(2021);
+    date2.setMinutes(30);
+    date2.setHours(19);
+    date2.setSeconds(0);
+    console.log(date2);
+    const diff: any = date2.valueOf() - date.valueOf();
+    const days = Math.floor(diff / 1000 / 60 / 60 / 24);
+    const hours = Math.floor(diff / 1000 / 60 / 60) % 24;
+    const minutes = Math.floor(diff / 1000 / 60) % 60;
+    const seconds = Math.floor(diff / 1000) % 60;
+
+    console.log(`${days}z ${hours}h ${minutes}m ${seconds}s`);
   }
 
   function1() {

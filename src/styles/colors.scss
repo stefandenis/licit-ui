@@ -1,0 +1,44 @@
+$default-licit-colors: (
+  primary: #9d6dff,
+  accent: #6c40ff,
+);
+
+$navbar: (
+  light-background: #ffffff,
+  dark-background: #1a1a1a,
+);
+
+$mat-menu: (
+  light-background: #ffffff,
+  dark-background: #353535,
+  dark-background-hover: rgba(255, 255, 255, 0.15),
+);
+
+$login: (
+  light-background: #ffffff,
+  dark-background: #1a1a1a,
+);
+
+$input: (
+  light-background: #ffffff,
+  dark-background: rgba(255, 255, 255, 0.3),
+);
+
+$checkbox: (
+  light-border: rgba(0, 0, 0, 0.3),
+  dark-border: rgba(255, 255, 255, 0.3),
+);
+
+$card: (
+  light-background: rgb(255, 255, 255),
+  dark-background: rgb(46, 46, 46),
+  light-loading-background: rgba(167, 167, 167, 0.205),
+  dark-loading-background: rgba(87, 87, 87, 0.534),
+  dark-loading-bar-color: rgba(255, 255, 255, 0.151),
+  light-loading-bar-color: rgba(150, 150, 150, 0.151),
+);
+
+$scrollbar: (
+  primary-thumb: linear-gradient(119deg, #6c40ff 14%, #9d6dff 34%),
+  primary-thumb-hover: linear-gradient(150deg, #9d6dff 14%, #6c40ff 34%),
+);

@@ -1,0 +1,26 @@
+@use "sass:map";
+@use "./colors";
+@use "~@angular/material" as mat;
+
+@mixin theme($type) {
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+  ::-webkit-scrollbar-thumb {
+    @if $type == primary {
+      background: map.get(colors.$scrollbar, primary-thumb);
+    }
+    border-radius: 30px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @if $type == primary {
+      background: map.get(colors.$scrollbar, primary-thumb-hover);
+    }
+  }
+  ::-webkit-scrollbar-track {
+    background: #ceb5ffa1;
+    border-radius: 30px;
+    box-shadow: inset 0px 0px 0px 0px #f0f0f0;
+  }
+}

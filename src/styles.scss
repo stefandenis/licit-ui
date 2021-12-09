@@ -54,6 +54,7 @@ $app-light-theme: mat-light-theme($mat-primary-palette, $mat-accent-palette);
   @include register.theme($theme);
   @include checkbox.theme($theme);
   @include licitation-card.theme($theme);
+  @include licitation-card.card_container_theme($theme);
 }
 
 @include app-theme(theming.$light-theme);

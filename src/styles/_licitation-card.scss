@@ -17,9 +17,35 @@ $has-nested-focusable-element: (
       .mat-ripple-element {
         background-color: rgba(136, 136, 136, 0.25);
       }
+      .card__loading-background {
+        background-color: map.get(colors.$card, dark-loading-background);
+      }
+      .card__loading-bar {
+        background-color: map.get(colors.$card, dark-loading-bar-color);
+      }
     } @else {
       @include mat.elevation(3);
       background-color: map.get(colors.$card, light-background);
+      .card__loading--background {
+        background-color: map.get(colors.$card, light-loading-background);
+      }
+
+      .card__loading-bar {
+        background-color: map.get(colors.$card, light-loading-bar-color);
+      }
+    }
+    color: $color;
+  }
+}
+@mixin card_container_theme($theme) {
+  $is-dark: map.get($theme, is-dark);
+  $color: map.get($theme, color);
+
+  .cards-container-wrapper {
+    @if $is-dark {
+      background-color: #1a1a1a;
+    } @else {
+      background-color: white;
     }
     color: $color;
   }

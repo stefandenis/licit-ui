@@ -30,9 +30,16 @@ $TandCBoxHeight: 20px;
     "street number city"
     "additionalDetails additionalDetails additionalDetails"
     "phone phone phone"
+    "postalCode postalCode postalCode"
     "a a a"
     "pw pw pw"
     "confPw confPw confPw";
+}
+
+.postalCode {
+  grid-area: postalCode;
+  width: 50%;
+  justify-self: center;
 }
 
 .a {

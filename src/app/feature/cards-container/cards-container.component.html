@@ -1,0 +1,50 @@
+<div #cardsContainerWrapper class="cards-container-wrapper">
+  <p class="cards-container__category">Categorie</p>
+  <div
+    class="cards-container"
+    #cardsContainer
+    *ngIf="itemBigCards; else loadingCards"
+  >
+    <div
+      class="cards-container__card_wrapper"
+      *ngFor="let item of itemBigCards"
+    >
+      <app-big-card
+        [itemId]="'uuid'"
+        [isAddedToWatchList]="false"
+        [watchListMessage]="
+          false ? 'Urmaresti licitatia' : 'Urmareste licitatia'
+        "
+        [title]="'Tricou Gucci'"
+        [endDate]="getDate()"
+        [price]="'20 lei'"
+        [imageUrl]="'../../../../assets/tricou.jpg'"
+        [isCardLoaded]="true"
+      ></app-big-card>
+    </div>
+    <div
+      (click)="slideToLeft()"
+      class="cards-container__arrows cards-container__left-arrow"
+    >
+      <mat-icon>chevron_left</mat-icon>
+    </div>
+    <div
+      (click)="slideToRight()"
+      class="cards-container__arrows cards-container__right-arrow"
+    >
+      <mat-icon>chevron_right</mat-icon>
+    </div>
+  </div>
+  <div #dotsContainer class="cards-container__nav-dots"></div>
+</div>
+
+<ng-template #loadingCards>
+  <div class="cards-container">
+    <div
+      class="cards-container__card_wrapper"
+      *ngFor="let i of [].constructor(20)"
+    >
+      <app-big-card [isCardLoaded]="false"></app-big-card>
+    </div>
+  </div>
+</ng-template>

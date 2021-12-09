@@ -1,0 +1,20 @@
+item
+    
+    itemId: uuid
+    ownerId: userId
+    category: 
+    onGoing: boolean
+    startDate: date,
+    endDate: date,
+    entryPrice: object:
+        value: number,
+        currency: enum
+    step: number
+    blitz: number
+    winnerId: userId,
+    bidders: [] array
+        {
+            userId
+            bidValue
+        }
+    

@@ -1,0 +1,162 @@
+@use "../../../styles/scrollbar";
+@use "../../../styles/colors";
+@use "sass:map";
+
+.cards-container {
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 5px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.cards-container__card_wrapper {
+  // padding: 0px 7px 0px 7px;
+}
+
+.cards-container__arrows {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transform: scale(200%);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cards-container__left-arrow {
+  left: 20px;
+  background: rgb(28, 28, 28);
+  background: linear-gradient(
+    90deg,
+    rgba(28, 28, 28, 1) 0%,
+    rgba(209, 209, 209, 1) 100%
+  );
+}
+
+.cards-container__left-arrow:hover {
+  background: rgb(209, 209, 209);
+  background: linear-gradient(
+    90deg,
+    rgba(209, 209, 209, 1) 0%,
+    rgba(28, 28, 28, 0.8071603641456583) 100%
+  );
+}
+
+.cards-container__right-arrow:hover {
+  background: rgb(28, 28, 28);
+  background: linear-gradient(
+    90deg,
+    rgba(28, 28, 28, 1) 0%,
+    rgba(209, 209, 209, 1) 100%
+  );
+}
+.cards-container__right-arrow {
+  right: 20px;
+  background: rgb(209, 209, 209);
+  background: linear-gradient(
+    90deg,
+    rgba(209, 209, 209, 1) 0%,
+    rgba(28, 28, 28, 0.8071603641456583) 100%
+  );
+}
+// LOADING CARD
+
+.card__loading-image {
+  width: 95%;
+  height: 40%;
+  border-radius: 5px;
+  position: relative;
+  // background-color: rgb(102, 102, 102);
+  overflow: hidden;
+}
+
+.card__title {
+  width: 50%;
+  height: 20px;
+  border-radius: 5px;
+  margin-top: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card__remaining-time {
+  width: 70%;
+  height: 20px;
+  border-radius: 5px;
+  margin-top: 25px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card__price {
+  width: 60%;
+  height: 20px;
+  border-radius: 5px;
+  margin-top: 25px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card__loading-bar {
+  height: 125%;
+  width: 20px;
+  filter: blur(15px);
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(10deg);
+  animation: loadingBar 2s linear infinite;
+}
+
+@keyframes loadingBar {
+  from {
+    left: -30px;
+  }
+  to {
+    left: 120%;
+  }
+}
+
+// END LOADING CARD
+
+.cards-container__category {
+  font-size: 20px;
+  margin: 0px 0px 5px 10px;
+}
+
+.cards-container-wrapper {
+  padding: 15px 20px 15px 20px;
+  margin: 0px 10px 0px 10px;
+  border-radius: 5px;
+}
+
+.nav-dots__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+}
+
+.cards-container__nav-dots {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  justify-content: center;
+}
+
+.nav-dots__dot--inactive {
+  background-color: gray;
+}
+
+.nav-dots__dot--active {
+  background-color: map.get(colors.$default-licit-colors, accent);
+}

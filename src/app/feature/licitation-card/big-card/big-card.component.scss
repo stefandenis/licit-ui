@@ -1,19 +1,26 @@
 .card {
   border-radius: 5px;
-  cursor: pointer;
-
   width: 180px;
-  height: 230px;
+  height: 300px;
   display: flex;
-  justify-content: center;
+  align-items: center;
   position: relative;
+  flex-direction: column;
 }
 
+.card-transition {
+  transform: translateY(0px);
+  transition: transform 0.2s linear;
+}
+.card-transition:hover {
+  transform: translateY(-3px);
+}
 .card__product-image {
   width: 95%;
   height: 40%;
   object-fit: cover;
   border-radius: 5px;
+
   user-select: none;
 }
 
@@ -22,4 +29,132 @@
   top: 5px;
   right: 5px;
   user-select: none;
+  display: flex;
 }
+
+.card__follow-licitation__info {
+  display: none;
+  background-color: #6d40ff;
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  color: white !important;
+
+  white-space: nowrap;
+  height: 20px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  padding-left: 2px;
+
+  transform: translateX(-8px) translateY(-50%);
+  &::before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: -6px;
+    border-style: solid;
+    border-width: 10px 0px 10px 6px;
+    border-color: transparent transparent transparent #6d40ff;
+  }
+}
+
+.card__follow-licitation__icon {
+  background-color: #6d40ff48;
+  border-radius: 50%;
+  padding: 2px 2px 2px 2px;
+  color: white !important;
+}
+
+.card__follow-licitation:hover .card__follow-licitation__icon {
+  background-color: #6d40ff;
+}
+
+.card__follow-licitation:hover .card__follow-licitation__info {
+  display: block;
+}
+
+.card__follow-licitation__info--added {
+  color: rgb(240, 94, 94) !important;
+}
+
+.card__details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card__detail {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+.card__licitation-entry {
+  position: absolute;
+  bottom: 5px;
+}
+
+.card__detail--date {
+  margin-bottom: 15px;
+}
+
+// LOADING CARD
+
+.card__loading-image {
+  width: 95%;
+  height: 40%;
+  border-radius: 5px;
+  position: relative;
+  // background-color: rgb(102, 102, 102);
+  overflow: hidden;
+}
+
+.card__title {
+  width: 50%;
+  height: 20px;
+  border-radius: 5px;
+  margin-top: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card__remaining-time {
+  width: 70%;
+  height: 20px;
+  border-radius: 5px;
+  margin-top: 25px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card__price {
+  width: 60%;
+  height: 20px;
+  border-radius: 5px;
+  margin-top: 25px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card__loading-bar {
+  height: 125%;
+  width: 20px;
+  filter: blur(15px);
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(10deg);
+  animation: loadingBar 2s linear infinite;
+}
+
+@keyframes loadingBar {
+  from {
+    left: -30px;
+  }
+  to {
+    left: 120%;
+  }
+}
+
+// END LOADING CARD
